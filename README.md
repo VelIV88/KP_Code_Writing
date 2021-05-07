@@ -3,8 +3,8 @@
 
 Python v.3.9.4
 
-Библиотеки:
-matplotlib      3.4.1
-numpy           1.20.2
-PyQt5           5.15.4
-scipy           1.6.2
+Библиотеки: 
+matplotlib      3.4.1 
+numpy           1.20.2 
+PyQt5           5.15.4 
+scipy           1.6.2 
