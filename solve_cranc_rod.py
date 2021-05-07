@@ -91,10 +91,3 @@ class CrankSlideMech:
         acc_B, accTau_BA = fsolve(accelerationEqu, (0, 0))
         return accNorm_A, accNorm_BA, accTau_BA, acc_B, angleRod
         
-#first_cr_sl_mech = CrankSlideMech(angleGuid=10, eccentrGuid=0.01, 
-#                                    lengthCrank=0.1, lengthRod=0.3, 
-#                                    rotateSpeedCrank=10, angleCrank=20)
-#print(first_cr_sl_mech.findCoord_A())
-#print(first_cr_sl_mech.findCoord_B())
-#print(first_cr_sl_mech.findVelocity())
-#print(first_cr_sl_mech.findAcceleration())

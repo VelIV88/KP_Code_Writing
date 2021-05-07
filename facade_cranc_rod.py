@@ -273,7 +273,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         xLenA_B = -a_B * np.cos(CSM.angleGuid)
         yLenA_B = -a_B * np.sin(CSM.angleGuid)
         
-        #Костыль, угол не всегда рассчитывается правильно.
+        #Костыль
+        #Угол не всегда рассчитывается правильно.
+        #Вектор поворачивается на 180 градусов.
         #В чем проблема не совсем понятно.
         isAngleAccRodTrue = (xPointA_B - (xPointA_A + xLenA_BA * np.cos(CSM.angleGuid)) < 0.001)
         if not isAngleAccRodTrue:
