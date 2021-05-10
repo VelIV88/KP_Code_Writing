@@ -309,7 +309,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
 
 def plotSingleEmptyGraph():
-    """Построение заготовки графика"""
+    """Построение пустой заготовки графика"""
     fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(4.98, 5.19), dpi=85, facecolor='white', frameon=True,
                             edgecolor='black', linewidth=1)
     fig.subplots_adjust(wspace=0.4, hspace=0.4, left=0.15, right=0.85, top=0.9, bottom=0.1)
