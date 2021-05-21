@@ -30,7 +30,7 @@ class CrankSlideMech:
         
         
     def findCoord_B(self):
-        """Метод нахождения координат точки А"""
+        """Метод нахождения координат точки B"""
         z = ([(self.lengthRod) * np.cos(self.angleGuid),
                       (self.lengthRod) * np.sin(self.angleGuid)])
         def geomEqu(z):
@@ -70,22 +70,24 @@ class CrankSlideMech:
     
     def findAcceleration(self):
         """Метод нахождения линейных ускорений точек механизма"""
+        velocity_BA = self.findVelocity()[2]
         accNorm_A = self.rotateSpeedCrank**2 * self.lengthCrank
-        accNorm_BA = (self.findVelocity()[2]**2 / self.lengthRod)
+        accNorm_BA = (velocity_BA**2 / self.lengthRod)
         x_B, y_B = CrankSlideMech.findCoord_B(self)
         x_A, y_A = CrankSlideMech.findCoord_A(self)
         angleRod = np.arctan((y_B - y_A) / (x_B - x_A))
         
         def accelerationEqu(a):
             a_B, aTau_BA = a
+            angleVelRod = self.findVelocity()[4]
             f1 = (a_B * np.sin(self.angleGuid) - 
                   accNorm_A * np.sin(self.angleCrank) - 
                   accNorm_BA * np.sin(angleRod) -
-                  aTau_BA * np.sin(self.findVelocity()[4]))
+                  aTau_BA * np.sin(angleVelRod))
             f2 = (a_B * np.cos(self.angleGuid) - 
                   accNorm_A * np.cos(self.angleCrank) - 
                   accNorm_BA * np.cos(angleRod) -
-                  aTau_BA * np.cos(self.findVelocity()[4]))
+                  aTau_BA * np.cos(angleVelRod))
             return (f1, f2)
         
         acc_B, accTau_BA = fsolve(accelerationEqu, (0, 0))
