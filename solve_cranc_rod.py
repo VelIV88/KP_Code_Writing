@@ -31,8 +31,8 @@ class CrankSlideMech:
         
     def findCoord_B(self):
         """Метод нахождения координат точки B"""
-        z = ([(self.lengthRod) * np.cos(self.angleGuid),
-                      (self.lengthRod) * np.sin(self.angleGuid)])
+        z = ([(self.lengthRod) * np.cos(self.angleGuid) + 0.0001,
+                      (self.lengthRod) * np.sin(self.angleGuid) + 0.0001])
         def geomEqu(z):
             """Система уравнений, описывающих условия совместности перемещения
             кривошипа, шатуна и ползуна"""
@@ -55,7 +55,6 @@ class CrankSlideMech:
         angleVelRod = np.arctan((y_B - y_A) / (x_B - x_A)) - np.pi / 2
         
         def velocityEqu(v):
-            """Система уравнений, описывающая кинематику механизма"""
             v_B, v_BA = v
             f1 = (v_B * np.sin(self.angleGuid) - 
                   velocity_A * np.sin(angleVel_A) - 

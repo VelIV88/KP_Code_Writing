@@ -1,0 +1,1 @@
+pyuic5 C:\Users\iapen\Projects\python\KP\TMM\ui\WindowCrancRod.ui -o C:\Users\iapen\Projects\python\KP\TMM\window_cranc_rod.py
